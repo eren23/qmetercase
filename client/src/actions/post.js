@@ -23,6 +23,7 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+//Add item to the basket
 export const addBasket = (id, size) => async (dispatch) => {
   try {
     const res = await axios.post(`/api/product/${id}`);
@@ -37,7 +38,7 @@ export const addBasket = (id, size) => async (dispatch) => {
     console.log(err);
     dispatch({
       type: BASKET_ERROR,
-      payload: { deneme: "deneme" },
+      payload: { deneme: "Error occured" },
     });
   }
 };

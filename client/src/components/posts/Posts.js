@@ -41,7 +41,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
         {posts.map(
           (post) =>
             post.amount > 0 &&
-            (toShow == "All" || post.category == toShow) && (
+            (toShow === "All" || post.category === toShow) && (
               <PostItem key={post._id} post={post} />
             )
         )}

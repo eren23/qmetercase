@@ -64,6 +64,9 @@ router.get("/", async (req, res) => {
   }
 });
 
+// @route    POST api/product/:product_id
+// @desc     Add item to basket
+// @access   Private
 router.post("/:product_id", auth, async (req, res) => {
   try {
     const product = await Product.findOne({
@@ -76,7 +79,7 @@ router.post("/:product_id", auth, async (req, res) => {
 
     if (!user) return res.status(400).json({ msg: "User not found" });
 
-    const { productname, warehousenumber, category, text } = product;
+    const { productname, warehousenumber, category, text, price } = product;
 
     const basketItem = {
       productname,
@@ -84,6 +87,7 @@ router.post("/:product_id", auth, async (req, res) => {
       amount: 1,
       category,
       text,
+      price,
     };
 
     product.amount--;
@@ -113,6 +117,9 @@ router.post("/:product_id", auth, async (req, res) => {
   }
 });
 
+// @route    GET api/product/me
+// @desc     Fill the Basket
+// @access   Private
 router.get("/me", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
@@ -129,6 +136,9 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+// @route    POST api/product/basket/:product_id
+// @desc     Remove Item from the Basket
+// @access   Private
 router.post("/basket/:product_id", auth, async (req, res) => {
   try {
     const product = await Product.findOne({
@@ -141,7 +151,7 @@ router.post("/basket/:product_id", auth, async (req, res) => {
 
     if (!user) return res.status(400).json({ msg: "User not found" });
 
-    const { productname, warehousenumber, category, text } = product;
+    const { productname, warehousenumber, category, text, price } = product;
 
     const basketItem = {
       productname,
@@ -149,6 +159,7 @@ router.post("/basket/:product_id", auth, async (req, res) => {
       amount: 1,
       category,
       text,
+      price,
     };
 
     product.amount++;
@@ -165,7 +176,8 @@ router.post("/basket/:product_id", auth, async (req, res) => {
     } else {
       user.basket.unshift(basketItem);
     }
-
+    const newUser = user.basket.filter((item) => item.amount > 0);
+    user.basket = newUser;
     await user.save();
     await product.save();
     res.json(user);
@@ -176,6 +188,9 @@ router.post("/basket/:product_id", auth, async (req, res) => {
   }
 });
 
+// @route    GET api/product/purchase
+// @desc     Complete the Purchase
+// @access   Private
 router.get("/purchase", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");

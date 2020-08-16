@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addBasket } from "../../actions/post";
 const PostItem = ({
   auth,
-  post: { productname, warehousenumber, amount, category, text },
+  post: { productname, warehousenumber, amount, category, text, price },
   addBasket,
 }) => {
   return (
@@ -17,10 +17,9 @@ const PostItem = ({
 
         <Fragment>
           <button type="button" className="btn btn-light">
-            <i className="fas fa-hashtag"></i>
             <span>
               {" "}
-              {amount > 0 && <span className="comment-count">{amount}</span>}
+              {amount > 0 && <span className="comment-count">{price}$</span>}
             </span>
           </button>
           <button
@@ -38,6 +37,8 @@ const PostItem = ({
       <p className="my-1">
         <strong>Product Descripton: </strong>
         {text}
+        <br /> <br />
+        <i>Pieces Left:{amount}</i>
       </p>
     </div>
   );

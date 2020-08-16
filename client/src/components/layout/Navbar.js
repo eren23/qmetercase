@@ -14,7 +14,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
-        <Link to="/posts">
+        <Link to="/products">
           <i className="fas fa-shopping-cart"></i>{" "}
           <span className="hide-sm">Products</span>
         </Link>

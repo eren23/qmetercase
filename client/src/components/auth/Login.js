@@ -21,7 +21,7 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/posts" />;
+    return <Redirect to="/products" />;
   }
 
   return (

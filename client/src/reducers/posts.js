@@ -23,7 +23,6 @@ export default function (state = initialState, action) {
         loading: false,
       };
     case ADD_BASKET:
-      // console.log(payload);
       return {
         ...state,
         posts: state.posts.map((post) =>

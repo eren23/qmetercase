@@ -9,6 +9,7 @@ import {
 } from "./types";
 import { setAlert } from "./alert";
 
+//Fill basket
 export const getBasket = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/product/me");
@@ -23,6 +24,7 @@ export const getBasket = () => async (dispatch) => {
   }
 };
 
+//Remove Item from the Basket
 export const removeBasket = (id, size) => async (dispatch) => {
   try {
     await axios.post(`/api/product/basket/${id}`);
@@ -38,6 +40,7 @@ export const removeBasket = (id, size) => async (dispatch) => {
   }
 };
 
+//Complete the Purchase
 export const completePurchase = () => async (dispatch) => {
   try {
     await axios.get("/api/product/purchase/");
