@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 // import { addLike, removeLike, deletePost } from "../../actions/post";
 import { removeBasket } from "../../actions/basket";
@@ -26,7 +25,7 @@ const PostItem = ({
           </button>
           <button
             onClick={(e) => {
-              console.log("basketitemsize", amount);
+              //aconsole.log("basketitemsize", amount);
               amount--;
               removeBasket(warehousenumber, amount);
             }}

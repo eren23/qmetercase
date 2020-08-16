@@ -9,13 +9,13 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <Link to="/basket">
-          <i class="fas fa-shopping-basket"></i>{" "}
+          <i className="fas fa-shopping-basket"></i>{" "}
           <span className="hide-sm">Basket</span>
         </Link>
       </li>
       <li>
         <Link to="/posts">
-          <i class="fas fa-shopping-cart"></i>{" "}
+          <i className="fas fa-shopping-cart"></i>{" "}
           <span className="hide-sm">Products</span>
         </Link>
       </li>
@@ -43,7 +43,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <nav className="navbar bg-dark">
       <h1>
         <Link to="/">
-          <i className="fas fa-code" /> DevConnector
+          <i className="fa fa-shopping-basket" /> QMeter Shop
         </Link>
       </h1>
       {!loading && (

@@ -4,11 +4,8 @@ import {
   MAKE_BASKET,
   MAKE_ERROR,
   REMOVE_ITEM,
-  REMOVE_ERROR,
   COMPLETE_PURCHASE,
 } from "../actions/types";
-// import posts from "./posts";
-// import { post } from "request";
 
 const initialState = {
   posts: [],
@@ -18,7 +15,6 @@ const initialState = {
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
-  // console.log(payload);
   switch (type) {
     case ADD_BASKET:
       return {
@@ -44,7 +40,6 @@ export default function (state = initialState, action) {
     case MAKE_ERROR:
       return {
         ...state,
-        error: payload,
         loading: false,
       };
     case REMOVE_ITEM:

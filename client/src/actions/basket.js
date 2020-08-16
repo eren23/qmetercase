@@ -25,7 +25,7 @@ export const getBasket = () => async (dispatch) => {
 
 export const removeBasket = (id, size) => async (dispatch) => {
   try {
-    const res = await axios.post(`/api/product/basket/${id}`);
+    await axios.post(`/api/product/basket/${id}`);
 
     dispatch({
       type: REMOVE_ITEM,

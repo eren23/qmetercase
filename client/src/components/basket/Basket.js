@@ -29,7 +29,7 @@ const Posts = ({ completePurchase, getBasket, basket: { posts, loading } }) => {
         type="button"
         className="btn btn-success"
       >
-        <i class="fa fa-check" aria-hidden="true"></i>
+        <i className="fa fa-check" aria-hidden="true"></i>
         <span>
           {" "}
           <span className="comment-count">Complete Purchase Button</span>

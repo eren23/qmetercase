@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-// import { addLike, removeLike, deletePost } from "../../actions/post";
 import { addBasket } from "../../actions/post";
 const PostItem = ({
   auth,
@@ -19,7 +17,7 @@ const PostItem = ({
 
         <Fragment>
           <button type="button" className="btn btn-light">
-            <i class="fas fa-hashtag"></i>
+            <i className="fas fa-hashtag"></i>
             <span>
               {" "}
               {amount > 0 && <span className="comment-count">{amount}</span>}
@@ -33,7 +31,7 @@ const PostItem = ({
             type="button"
             className="btn btn-success"
           >
-            <i class="fas fa-plus"></i>
+            <i className="fas fa-plus"></i>
           </button>
         </Fragment>
       </div>
